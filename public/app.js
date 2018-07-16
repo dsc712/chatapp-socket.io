@@ -27,6 +27,7 @@ $(document).ready(function () {
     $(btn).click(function () {
         let val=inp.val();
         socket.emit('newmessage',val)
+        inp.val() = "" ;
     })
 
     socket.on('message',function (data) {
