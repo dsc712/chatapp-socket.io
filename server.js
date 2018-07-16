@@ -6,6 +6,8 @@ const socketServer = http.Server(app) ;
 const socket = require('socket.io') ;
 const io = socket(socketServer) ;
 
+const port = process.env.PORT || 8080 ;
+
 app.use('/',express.static('public') ) ;
 
 let id=[];
@@ -43,8 +45,8 @@ io.on('connection',function (socket) {
 
 
 // .emit vs .on   (.emit emits the information     ||||    .on recieves the information)
-socketServer.listen(8080 , function(){
-    console.log("Server is listening on port 8080") ;
+socketServer.listen(port , function(){
+    console.log("Server is listening on port " + port ) ;
 }) ;
 
 
